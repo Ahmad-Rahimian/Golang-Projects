@@ -4,7 +4,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"log"
 )
 
@@ -20,6 +19,4 @@ func main(){
 			return
 		}
 	defer file.Close()
-
-
 }
