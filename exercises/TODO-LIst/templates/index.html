@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+</head>
+
+<body>
+    <h1>My ToDo List</h1>
+    <form method="POST" action="/">
+        <input type="text" name="task" placeholder="Enter task">
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {{range .Tasks}}
+        <li>{{.}}</li>
+        {{else}}
+        <li>No tasks yet</li>
+        {{end}}
+    </ul>
+</body>
+
+</html>
