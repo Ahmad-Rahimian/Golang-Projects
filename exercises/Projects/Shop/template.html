@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {{range $index, $p := .}}
+        <li>
+            <strong>{{.Name}}</strong> - ${{.Price}}<br>
+            {{.Description}}<br><br>
+            <form method="GET" action="/edit" style="display:inline;">
+                <input type="hidden" name="index" value="{{$index}}">
+                <button type="submit">Edit</button>
+            </form>
+            <form method="POST" action="/delete" style="display:inline;">
+                <input type="hidden" name="index" value="{{$index}}">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {{else}}
+        <li>No products available.</li>
+        {{end}}
+    </ul>
+    <br>
+    <a href="/create"><button>Add Product</button></a>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Todo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create a New Todo</h1>
+    <form method="POST" action="/add">
+        <label>Title:</label><br>
+        <input type="text" name="title"><br><br>
+
+        <label>Content:</label><br>
+        <textarea name="content"></textarea><br><br>
+
+        <button type="submit">Add Todo</button>
+    </form>
+    <br>
+    <a href="/"><button>Back to List</button></a>
+</body>
+
+</html>

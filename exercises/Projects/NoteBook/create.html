@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Note</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 30px;
+        }
+
+        textarea,
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create a New Note</h1>
+    <form method="POST" action="/create">
+        <label>Title:</label><br>
+        <input type="text" name="title"><br><br>
+
+        <label>Body:</label><br>
+        <textarea name="body" rows="6"></textarea><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="/"><button>Back to List</button></a>
+</body>
+
+</html>

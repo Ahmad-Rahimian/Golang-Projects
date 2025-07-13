@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        label,
+        input,
+        textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add New Product</h1>
+    <form method="POST" action="/create">
+        <label>Product Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Price:</label>
+        <input type="number" name="price" min="0" step="0.01" required>
+
+        <label>Description:</label>
+        <textarea name="description" rows="4" cols="30"></textarea>
+
+        <br>
+        <button type="submit">Save Product</button>
+    </form>
+    <br>
+    <a href="/"><button>Back to List</button></a>
+</body>
+
+</html>

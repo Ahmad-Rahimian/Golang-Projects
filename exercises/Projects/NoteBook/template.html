@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notebook</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 30px;
+        }
+
+        .note {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 5px 12px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .meta {
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Notes</h1>
+
+    {{range $index, $note := .}}
+    <div class="note">
+        <h2>{{.Title}}</h2>
+        <p>{{.Body}}</p>
+        <p class="meta">Created: {{.CreatedAt.Format "2006-01-02 15:04:05"}}</p>
+        <p class="meta">Updated: {{.UpdatedAt.Format "2006-01-02 15:04:05"}}</p>
+        <div class="actions">
+            <form action="/edit" method="GET" style="display:inline;">
+                <input type="hidden" name="index" value="{{$index}}">
+                <button>Edit</button>
+            </form>
+            <form action="/delete" method="POST" style="display:inline;">
+                <input type="hidden" name="index" value="{{$index}}">
+                <button>Delete</button>
+            </form>
+        </div>
+    </div>
+    {{else}}
+    <p>No notes yet.</p>
+    {{end}}
+
+    <br>
+    <a href="/create"><button>Add New Note</button></a>
+</body>
+
+</html>
